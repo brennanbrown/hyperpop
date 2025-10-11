@@ -36,7 +36,7 @@ permalink: /blog/
         {% if post.data.tags %}
         <div class="archive-post-tags">
           {% for tag in post.data.tags %}
-            <span class="archive-tag">{{ tag }}</span>
+            <a href="/tags/{{ tag | slugify }}/" class="archive-tag">{{ tag }}</a>
           {% endfor %}
         </div>
         {% endif %}
@@ -189,6 +189,16 @@ permalink: /blog/
   font-family: var(--font-mono);
   font-size: 11px;
   color: var(--cyber-blue);
+  text-decoration: none;
+  display: inline-block;
+  transition: all 0.2s ease;
+}
+
+.archive-tag:hover {
+  background: var(--cyber-blue);
+  color: var(--deep-black);
+  box-shadow: 0 0 10px var(--cyber-blue);
+  transform: translateY(-1px);
 }
 
 .no-results {

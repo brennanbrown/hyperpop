@@ -1,0 +1,168 @@
+---
+pagination:
+  data: collections.tagList
+  size: 1
+  alias: tag
+permalink: /tags/{{ tag | slugify }}/
+layout: layouts/page.njk
+eleventyComputed:
+  title: "Tagged: {{ tag }}"
+---
+
+<div class="tag-page">
+  <div class="tag-header">
+    <h1 class="glitch" data-text="TAG: {{ tag | upper }}">TAG: {{ tag | upper }}</h1>
+    <p class="tag-count neon-text">
+      {{ collections[tag].length }} post{% if collections[tag].length != 1 %}s{% endif %} found
+    </p>
+    <a href="/blog/" class="back-link neon-link">← Back to All Posts</a>
+  </div>
+
+  <div class="posts-grid">
+    {% set taggedPosts = collections[tag] | reverse %}
+    {% for post in taggedPosts %}
+      <article class="post-card holo-card">
+        <a href="{{ post.url }}" class="card-link">
+          {% if post.data.featured_image %}
+          <div class="card-image-wrapper">
+            <img src="{{ post.data.featured_image }}" 
+                 alt="{{ post.data.title }}" 
+                 class="card-image"
+                 loading="lazy">
+          </div>
+          {% endif %}
+          
+          <div class="card-content">
+            <div class="card-meta">
+              <time class="card-date">{{ post.date | readableDate }}</time>
+              {% if post.data.category %}
+              <span class="card-category">{{ post.data.category }}</span>
+              {% endif %}
+            </div>
+            
+            <h2 class="card-title">{{ post.data.title }}</h2>
+            
+            {% if post.data.excerpt %}
+            <p class="card-excerpt">{{ post.data.excerpt }}</p>
+            {% endif %}
+            
+            {% if post.data.tags %}
+            <div class="card-tags">
+              {% for postTag in post.data.tags %}
+                <span class="tag-badge {% if postTag == tag %}active{% endif %}">{{ postTag }}</span>
+              {% endfor %}
+            </div>
+            {% endif %}
+          </div>
+        </a>
+      </article>
+    {% endfor %}
+  </div>
+
+  <div class="tag-navigation">
+    <h3>Other Tags</h3>
+    <div class="tag-cloud">
+      {% for otherTag in collections.tagList %}
+        {% if otherTag != tag %}
+          <a href="/tags/{{ otherTag | slugify }}/" class="tag-cloud-item">{{ otherTag }}</a>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+<style>
+.tag-page {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.tag-header {
+  text-align: center;
+  padding: 2rem 0 3rem;
+  border-bottom: 2px solid var(--neon-purple);
+  margin-bottom: 3rem;
+}
+
+.tag-header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.tag-count {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.back-link {
+  display: inline-block;
+  padding: 10px 20px;
+  background: rgba(0, 0, 0, 0.6);
+  border: 2px solid var(--cyber-blue);
+  border-radius: 4px;
+  text-decoration: none;
+  font-family: var(--font-mono);
+  transition: all 0.3s ease;
+}
+
+.back-link:hover {
+  background: var(--cyber-blue);
+  color: var(--deep-black);
+  box-shadow: 0 0 20px var(--cyber-blue);
+}
+
+.tag-badge.active {
+  background: var(--hot-pink);
+  border-color: var(--hot-pink);
+  box-shadow: 0 0 10px var(--hot-pink);
+}
+
+.tag-navigation {
+  margin-top: 4rem;
+  padding-top: 2rem;
+  border-top: 2px solid var(--neon-purple);
+}
+
+.tag-navigation h3 {
+  font-family: var(--font-pixel);
+  color: var(--cyber-blue);
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.tag-cloud {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+.tag-cloud-item {
+  padding: 8px 16px;
+  background: rgba(0, 0, 0, 0.6);
+  border: 1px solid var(--neon-purple);
+  border-radius: 4px;
+  color: var(--cyber-blue);
+  text-decoration: none;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  transition: all 0.2s ease;
+}
+
+.tag-cloud-item:hover {
+  background: var(--neon-purple);
+  color: #ffffff;
+  box-shadow: 0 0 15px var(--neon-purple);
+  transform: translateY(-2px);
+}
+
+@media (max-width: 767px) {
+  .tag-header h1 {
+    font-size: 1.8rem;
+  }
+  
+  .posts-grid {
+    grid-template-columns: 1fr;
+  }
+}
+</style>

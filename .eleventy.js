@@ -47,6 +47,14 @@ module.exports = function(eleventyConfig) {
     return array.slice(0, limit);
   });
   
+  // Slugify filter for URLs
+  eleventyConfig.addFilter("slugify", (str) => {
+    return str
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, '-')
+      .replace(/(^-|-$)/g, '');
+  });
+  
   // Image shortcode with optimization
   eleventyConfig.addNunjucksAsyncShortcode("image", async function(src, alt, sizes = "100vw") {
     let metadata = await Image(src, {
