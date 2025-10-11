@@ -1,0 +1,41 @@
+<article class="post-card holo-card" data-post-id="{{ post.fileSlug }}">
+  <a href="{{ post.url }}" class="card-link">
+    {% if post.data.featured_image %}
+    <div class="card-image-wrapper">
+      <img 
+        src="{{ post.data.featured_image }}" 
+        alt="{{ post.data.title }}"
+        loading="lazy"
+        class="card-image"
+      >
+    </div>
+    {% endif %}
+    
+    <div class="card-content">
+      <div class="card-meta">
+        <time datetime="{{ post.date | htmlDateString }}" class="digital-date">
+          {{ post.date | readableDate }}
+        </time>
+        {% if post.data.category %}
+        <span class="card-category" style="--category-color: {{ post.data.color_scheme | default('var(--neon-purple)') }}">
+          {{ post.data.category }}
+        </span>
+        {% endif %}
+      </div>
+      
+      <h3 class="card-title">{{ post.data.title }}</h3>
+      
+      {% if post.data.excerpt %}
+      <p class="card-excerpt">{{ post.data.excerpt }}</p>
+      {% endif %}
+      
+      {% if post.data.tags %}
+      <div class="card-tags">
+        {% for tag in post.data.tags | limit(3) %}
+        <span class="tag-pill">{{ tag }}</span>
+        {% endfor %}
+      </div>
+      {% endif %}
+    </div>
+  </a>
+</article>

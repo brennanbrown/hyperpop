@@ -1,0 +1,90 @@
+<!-- Right Sidebar - Widgets & Extras -->
+
+<!-- Stats Widget -->
+<div class="widget widget-stats">
+  <div class="widget-title">STATS</div>
+  <div class="widget-content">
+    <div id="stats-widget-sidebar"></div>
+  </div>
+</div>
+
+<!-- Tag Cloud -->
+<div class="widget widget-tags">
+  <div class="widget-title">TAGS</div>
+  <div class="widget-content">
+    <div class="tag-cloud-mini">
+      {% for tag in collections.tagList | limit(10) %}
+      <a href="/tags/{{ tag }}/" class="mini-tag">{{ tag }}</a>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+<!-- Webring -->
+<div class="widget widget-webring">
+  <div class="widget-title">WEBRING</div>
+  <div class="widget-content center">
+    <div class="webring">
+      <div class="webring-text">[ Y2K AESTHETIC WEBRING ]</div>
+      <div class="webring-nav">
+        <a href="#" class="webring-link">« PREV</a>
+        <span class="webring-sep">|</span>
+        <a href="#" class="webring-link">RANDOM</a>
+        <span class="webring-sep">|</span>
+        <a href="#" class="webring-link">NEXT »</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Guestbook -->
+<div class="widget widget-guestbook">
+  <div class="widget-title">GUESTBOOK</div>
+  <div class="widget-content">
+    <p class="widget-text">Sign my guestbook!</p>
+    <a href="/guestbook/" class="widget-button">SIGN HERE</a>
+  </div>
+</div>
+
+<!-- Link Buttons (88x31 badges) -->
+<div class="widget widget-buttons">
+  <div class="widget-title">COOL SITES</div>
+  <div class="widget-content center">
+    <div class="button-collection">
+      <!-- Placeholder 88x31 badges -->
+      <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='88' height='31'%3E%3Crect fill='%239d00ff' width='88' height='31'/%3E%3Ctext x='44' y='20' font-family='monospace' font-size='10' fill='%23fff' text-anchor='middle'%3ECYBERPUNK%3C/text%3E%3C/svg%3E" alt="Badge" class="link-badge">
+      <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='88' height='31'%3E%3Crect fill='%23ff10f0' width='88' height='31'/%3E%3Ctext x='44' y='20' font-family='monospace' font-size='10' fill='%23000' text-anchor='middle'%3EVAPORWAVE%3C/text%3E%3C/svg%3E" alt="Badge" class="link-badge">
+      <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='88' height='31'%3E%3Crect fill='%2300f0ff' width='88' height='31'/%3E%3Ctext x='44' y='20' font-family='monospace' font-size='10' fill='%23000' text-anchor='middle'%3EGLITCH ART%3C/text%3E%3C/svg%3E" alt="Badge" class="link-badge">
+      <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='88' height='31'%3E%3Crect fill='%2339ff14' width='88' height='31'/%3E%3Ctext x='44' y='20' font-family='monospace' font-size='10' fill='%23000' text-anchor='middle'%3ERETROWAVE%3C/text%3E%3C/svg%3E" alt="Badge" class="link-badge">
+    </div>
+  </div>
+</div>
+
+<!-- Email Me -->
+<div class="widget widget-email">
+  <div class="widget-content center">
+    <a href="mailto:{{ site.email }}" class="email-button">
+      <span class="email-icon">✉</span> EMAIL ME
+    </a>
+  </div>
+</div>
+
+<!-- Last Updated -->
+<div class="widget widget-updated">
+  <div class="widget-content center">
+    <div class="last-updated">
+      <div class="updated-label">LAST UPDATED:</div>
+      <div class="updated-date">2025-10-11</div>
+    </div>
+  </div>
+</div>
+
+<!-- Powered By -->
+<div class="widget widget-powered">
+  <div class="widget-content center">
+    <div class="powered-by">
+      <div class="powered-text">Powered by</div>
+      <div class="powered-tech">11ty + HTML + ♥</div>
+    </div>
+  </div>
+</div>

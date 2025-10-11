@@ -1,0 +1,25 @@
+<header class="site-header">
+  <div class="container">
+    <div class="header-content">
+      <a href="/" class="site-logo">
+        <h1 class="glitch" data-text="{{ site.title }}">{{ site.title }}</h1>
+      </a>
+      
+      <nav class="main-nav">
+        <ul class="nav-list">
+          {% for item in navigation %}
+          <li class="nav-item">
+            <a href="{{ item.url }}" class="nav-link neon-link">
+              {{ item.name }}
+            </a>
+          </li>
+          {% endfor %}
+        </ul>
+      </nav>
+      
+      <button class="mobile-menu-toggle" aria-label="Toggle menu">
+        <span class="hamburger"></span>
+      </button>
+    </div>
+  </div>
+</header>

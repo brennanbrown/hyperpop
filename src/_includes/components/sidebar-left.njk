@@ -1,0 +1,70 @@
+<!-- Left Sidebar - Navigation & User Info -->
+
+<!-- Navigation Menu -->
+<div class="widget widget-nav">
+  <div class="widget-title">NAVIGATE</div>
+  <div class="widget-content">
+    <nav class="sidebar-nav">
+      {% for item in navigation %}
+      <a href="{{ item.url }}" class="nav-button">
+        <span class="nav-icon">▸</span> {{ item.name }}
+      </a>
+      {% endfor %}
+    </nav>
+  </div>
+</div>
+
+<!-- About Widget -->
+<div class="widget widget-about">
+  <div class="widget-title">ABOUT</div>
+  <div class="widget-content">
+    <p class="widget-text">Welcome to my cyber corner of the web!</p>
+    <p class="widget-text">{{ site.description }}</p>
+  </div>
+</div>
+
+<!-- Hit Counter -->
+<div class="widget widget-counter">
+  <div class="widget-title">VISITORS</div>
+  <div class="widget-content">
+    <div id="hit-counter" class="hit-counter">
+      <span class="counter-digit">0</span>
+      <span class="counter-digit">0</span>
+      <span class="counter-digit">0</span>
+      <span class="counter-digit">0</span>
+      <span class="counter-digit">0</span>
+      <span class="counter-digit">0</span>
+    </div>
+    <p class="widget-text small">You are visitor #<span id="visitor-num">000000</span></p>
+  </div>
+</div>
+
+<!-- Under Construction -->
+<div class="widget widget-construction">
+  <div class="widget-content center">
+    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='88' height='31'%3E%3Crect fill='%23000' width='88' height='31'/%3E%3Ctext x='44' y='20' font-family='monospace' font-size='12' fill='%23ff10f0' text-anchor='middle'%3EUNDER%3C/text%3E%3Ctext x='44' y='28' font-family='monospace' font-size='8' fill='%2300f0ff' text-anchor='middle'%3ECONSTRUCTION%3C/text%3E%3C/svg%3E" alt="Under Construction">
+  </div>
+</div>
+
+<!-- Best Viewed In -->
+<div class="widget widget-badge">
+  <div class="widget-content center">
+    <div class="best-viewed">
+      <div class="badge-text">BEST VIEWED IN</div>
+      <div class="badge-browsers">
+        <span class="browser-icon">🌐</span>
+        <span class="badge-size">1024x768</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Now Online -->
+<div class="widget widget-status">
+  <div class="widget-content">
+    <div class="status-indicator">
+      <span class="status-dot"></span>
+      <span class="status-text">NOW ONLINE</span>
+    </div>
+  </div>
+</div>

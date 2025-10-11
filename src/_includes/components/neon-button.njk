@@ -1,0 +1,13 @@
+{# Usage: {% include "components/neon-button.njk", text: "Click Me", href: "/page", variant: "primary" %} #}
+
+{% set buttonTag = "a" if href else "button" %}
+{% set buttonVariant = variant | default("primary") %}
+
+<{{ buttonTag }} 
+  {% if href %}href="{{ href }}"{% endif %}
+  class="neon-button neon-button--{{ buttonVariant }}"
+  {% if type %}type="{{ type }}"{% endif %}
+>
+  <span class="button-text">{{ text }}</span>
+  <span class="button-glow" aria-hidden="true"></span>
+</{{ buttonTag }}>

@@ -1,0 +1,45 @@
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3 class="footer-title">
+          <span class="bracket">[</span>
+          {{ site.title }}
+          <span class="bracket">]</span>
+        </h3>
+        <p class="footer-description">{{ site.description }}</p>
+      </div>
+      
+      <div class="footer-section">
+        <h4 class="footer-subtitle">NAVIGATE</h4>
+        <ul class="footer-links">
+          {% for item in navigation %}
+          <li><a href="{{ item.url }}">{{ item.name }}</a></li>
+          {% endfor %}
+          <li><a href="/feed.xml">RSS Feed</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-section">
+        <h4 class="footer-subtitle">CONNECT</h4>
+        <ul class="footer-links">
+          <li><a href="{{ site.social.github }}" target="_blank" rel="noopener">GitHub</a></li>
+          <li><a href="{{ site.social.twitter }}" target="_blank" rel="noopener">Twitter</a></li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <div class="ascii-art">
+        <pre>
+  ╔═══════════════════════════╗
+  ║   Y 2 K   B L O G   v1.0  ║
+  ╚═══════════════════════════╝
+        </pre>
+      </div>
+      <p class="copyright">
+        &copy; 2025 {{ site.author }}. All rights reserved.
+      </p>
+    </div>
+  </div>
+</footer>

@@ -1,0 +1,83 @@
+---
+layout: layouts/base.njk
+---
+
+<article class="post" style="--post-color: {{ color_scheme | default('#9D00FF') }};">
+  <header class="post-header">
+    {% if featured_image %}
+    <div class="post-featured-image">
+      <img src="{{ featured_image }}" alt="{{ title }}" class="featured-img">
+    </div>
+    {% endif %}
+    
+    <div class="post-header-content">
+      <h1 class="post-title glitch" data-text="{{ title }}">{{ title }}</h1>
+      
+      <div class="post-meta">
+        <time datetime="{{ page.date | htmlDateString }}" class="post-date">
+          <span class="meta-label">PUBLISHED:</span>
+          {{ page.date | readableDate }}
+        </time>
+        
+        {% if category %}
+        <span class="post-category">
+          <span class="meta-label">CATEGORY:</span>
+          {{ category }}
+        </span>
+        {% endif %}
+      </div>
+      
+      {% if tags %}
+      <div class="post-tags">
+        {% for tag in tags %}
+        <a href="/tags/{{ tag }}/" class="tag-pill">{{ tag }}</a>
+        {% endfor %}
+      </div>
+      {% endif %}
+    </div>
+  </header>
+  
+  <div class="post-content">
+    {{ content | safe }}
+  </div>
+  
+  <footer class="post-footer">
+    <div class="post-share">
+      <h3 class="share-title">SHARE_THIS</h3>
+      <div class="share-buttons">
+        <a href="https://twitter.com/intent/tweet?text={{ title }}&url={{ site.url }}{{ page.url }}" 
+           target="_blank" 
+           rel="noopener"
+           class="share-button share-twitter">
+          Twitter
+        </a>
+        <button class="share-button share-copy" data-url="{{ site.url }}{{ page.url }}">
+          Copy Link
+        </button>
+      </div>
+    </div>
+  </footer>
+</article>
+
+<aside class="post-navigation">
+  {% if collections.posts %}
+    {% set previousPost = collections.posts | getPreviousCollectionItem(page) %}
+    {% set nextPost = collections.posts | getNextCollectionItem(page) %}
+    
+    {% if previousPost or nextPost %}
+    <div class="nav-links">
+      {% if previousPost %}
+      <a href="{{ previousPost.url }}" class="nav-previous neon-button neon-button--secondary">
+        ← Previous Post
+      </a>
+      {% endif %}
+      
+      {% if nextPost %}
+      <a href="{{ nextPost.url }}" class="nav-next neon-button neon-button--secondary">
+        Next Post →
+      </a>
+      {% endif %}
+    </div>
+    {% endif %}
+  {% endif %}
+</aside>

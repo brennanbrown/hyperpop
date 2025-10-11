@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" class="dark-mode">
+<head>
+  {% include "partials/head.njk" %}
+</head>
+<body class="scanlines" data-page="{{ page.url }}">
+  <!-- Cursor trail effect container -->
+  <div id="cursor-trail"></div>
+  
+  <!-- Page loader -->
+  <div class="y2k-loader" id="page-loader">
+    <div class="loader-inner">
+      <div class="loader-disc"></div>
+      <div class="loader-text">LOADING</div>
+      <div class="loader-bar">
+        <div class="loader-bar-fill"></div>
+      </div>
+    </div>
+  </div>
+  
+  {% include "components/header.njk" %}
+  
+  <div class="y2k-layout">
+    <!-- Left Sidebar -->
+    <aside class="sidebar sidebar-left">
+      {% include "components/sidebar-left.njk" %}
+    </aside>
+    
+    <!-- Main Content (squished in center) -->
+    <main class="main-content crt-container">
+      {{ content | safe }}
+    </main>
+    
+    <!-- Right Sidebar -->
+    <aside class="sidebar sidebar-right">
+      {% include "components/sidebar-right.njk" %}
+    </aside>
+  </div>
+  
+  {% include "components/footer.njk" %}
+  
+  <!-- Scripts -->
+  {% include "partials/scripts.njk" %}
+</body>
+</html>
