@@ -1,21 +1,22 @@
 ---
-title: "Building a Y2K Blog with 11ty"
+title: "Building HYPERPOP with Eleventy: Technical Deep Dive"
 date: 2025-10-10
 tags: 
   - 11ty
   - tutorial
-  - jamstack
+  - static-sites
+  - nunjucks
 category: "development"
 featured_image: "/assets/images/pixabay_terminal_aesthetic_4885803.jpg"
-excerpt: "Learn how to create a stunning Y2K-themed blog using Eleventy, the simple static site generator."
+excerpt: "A technical walkthrough of building an authentic Y2K blog theme with Eleventy, from configuration to deployment."
 glitch_intensity: "medium"
 color_scheme: "#00F0FF"
 layout: "layouts/post.njk"
 ---
 
-# Building a Y2K Blog with 11ty
+# Building HYPERPOP with Eleventy: Technical Deep Dive
 
-Eleventy (11ty) is the perfect foundation for building a fast, flexible, and beautifully designed blog. Here's how we built HYPERPOP.
+After building HYPERPOP from the ground up, I want to share the technical decisions, challenges, and solutions that made this Y2K blog theme possible. This is the real story of building with Eleventy 2.0.
 
 ## Why 11ty?
 
