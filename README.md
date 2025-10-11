@@ -343,6 +343,25 @@ Please feel free to open an issue or submit a pull request.
 - Hyperpop and alternative internet culture
 - Windows 98 UI design
 
+## 💖 Support This Project
+
+If you find this theme helpful, please consider supporting its development:
+
+<div align="center">
+
+[![Ko-fi](https://img.shields.io/badge/Ko--fi-Support%20Me-FF5E5B?style=for-the-badge&logo=ko-fi&logoColor=white)](https://ko-fi.com/brennan)
+[![GitHub Sponsors](https://img.shields.io/badge/GitHub-Sponsor-EA4AAA?style=for-the-badge&logo=github-sponsors&logoColor=white)](https://github.com/sponsors/brennanbrown)
+
+</div>
+
+Your support helps me:
+- 🛠️ Maintain and improve this theme
+- 🎨 Create more open-source projects
+- 📚 Write tutorials and documentation
+- ☕ Stay caffeinated while coding
+
+Even a small contribution makes a huge difference! Thank you! 💜
+
 ## 📄 License
 
 MIT License - feel free to use this theme for your own projects!
@@ -353,7 +372,7 @@ See the [LICENSE](LICENSE) file for details.
 
 <div align="center">
 
-**Made by [Brennan Brown](https://github.com/brennanbrown)**
+**Made with 💜 by [Brennan Brown](https://github.com/brennanbrown)**
 
 If you found this project helpful, consider giving it a ⭐!
 
