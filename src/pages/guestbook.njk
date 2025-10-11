@@ -1,0 +1,410 @@
+---
+layout: layouts/page.njk
+title: Guestbook
+permalink: /guestbook/
+---
+
+<div class="guestbook-container">
+  <div class="guestbook-intro">
+    <p class="neon-text">📝 Sign my guestbook! Leave your mark on the digital wall.</p>
+    <p style="color: var(--cyber-blue); margin-top: 1rem; font-size: 14px;">
+      ⚠️ This is a static site, so entries are stored in your browser's localStorage. They won't appear for other visitors - it's your personal guestbook experience!
+    </p>
+  </div>
+
+  <!-- Guestbook Form -->
+  <div class="guestbook-form-container">
+    <h3 class="form-title">✍️ LEAVE A MESSAGE</h3>
+    <form id="guestbook-form" class="guestbook-form">
+      <div class="form-group">
+        <label for="guest-name">Name:</label>
+        <input type="text" id="guest-name" name="name" required maxlength="30" placeholder="Your name or handle">
+      </div>
+      
+      <div class="form-group">
+        <label for="guest-website">Website (optional):</label>
+        <input type="url" id="guest-website" name="website" placeholder="https://yoursite.com">
+      </div>
+      
+      <div class="form-group">
+        <label for="guest-message">Message:</label>
+        <textarea id="guest-message" name="message" required maxlength="500" rows="4" placeholder="Leave your message here..."></textarea>
+        <span class="char-count">0/500</span>
+      </div>
+      
+      <div class="form-group">
+        <label for="guest-vibe">Current Vibe:</label>
+        <select id="guest-vibe" name="vibe">
+          <option value="😎">😎 Chill</option>
+          <option value="🔥">🔥 Fire</option>
+          <option value="✨">✨ Vibing</option>
+          <option value="💀">💀 Dead</option>
+          <option value="🌈">🌈 Happy</option>
+          <option value="🎮">🎮 Gaming</option>
+          <option value="💻">💻 Coding</option>
+          <option value="🎵">🎵 Music</option>
+        </select>
+      </div>
+      
+      <button type="submit" class="submit-btn">
+        <span class="btn-text">SIGN GUESTBOOK</span>
+      </button>
+    </form>
+  </div>
+
+  <!-- Guestbook Entries -->
+  <div class="guestbook-entries-container">
+    <h3 class="entries-title">📖 GUESTBOOK ENTRIES</h3>
+    <div id="guestbook-entries" class="guestbook-entries">
+      <!-- Entries will be loaded here -->
+    </div>
+  </div>
+</div>
+
+<style>
+.guestbook-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.guestbook-intro {
+  padding: 20px;
+  background: rgba(184, 78, 255, 0.1);
+  border: 2px solid var(--neon-purple);
+  border-radius: 8px;
+  margin-bottom: 30px;
+}
+
+.guestbook-form-container,
+.guestbook-entries-container {
+  background: rgba(10, 10, 10, 0.9);
+  border: 3px solid var(--hot-pink);
+  padding: 25px;
+  margin-bottom: 30px;
+  box-shadow: 0 0 20px rgba(255, 0, 110, 0.3);
+}
+
+.form-title,
+.entries-title {
+  font-family: var(--font-pixel);
+  font-size: 14px;
+  color: var(--cyber-blue);
+  text-shadow: 0 0 10px var(--cyber-blue);
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.guestbook-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  position: relative;
+}
+
+.form-group label {
+  font-family: var(--font-pixel);
+  font-size: 11px;
+  color: var(--hot-pink);
+  text-transform: uppercase;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+  padding: 12px;
+  background: rgba(0, 0, 0, 0.8);
+  border: 2px solid var(--cyber-blue);
+  border-radius: 4px;
+  color: #ffffff;
+  font-family: var(--font-body);
+  font-size: 14px;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  border-color: var(--hot-pink);
+  box-shadow: 0 0 10px rgba(255, 0, 110, 0.5);
+}
+
+.char-count {
+  position: absolute;
+  bottom: -20px;
+  right: 0;
+  font-size: 11px;
+  color: var(--acid-green);
+  font-family: var(--font-mono);
+}
+
+.submit-btn {
+  padding: 15px 30px;
+  background: linear-gradient(135deg, var(--hot-pink), var(--neon-purple));
+  border: 2px solid var(--cyber-blue);
+  border-radius: 4px;
+  color: #ffffff;
+  font-family: var(--font-pixel);
+  font-size: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 15px rgba(255, 0, 110, 0.5);
+}
+
+.submit-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 25px rgba(255, 0, 110, 0.8);
+}
+
+.submit-btn:active {
+  transform: scale(0.98);
+}
+
+.guestbook-entries {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-height: 600px;
+  overflow-y: auto;
+}
+
+.guestbook-entry {
+  padding: 15px;
+  background: rgba(0, 0, 0, 0.6);
+  border: 2px solid var(--neon-purple);
+  border-radius: 4px;
+  position: relative;
+  animation: entryAppear 0.3s ease;
+}
+
+@keyframes entryAppear {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.entry-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.entry-name {
+  font-family: var(--font-pixel);
+  font-size: 12px;
+  color: var(--hot-pink);
+}
+
+.entry-name a {
+  color: var(--cyber-blue);
+  text-decoration: none;
+}
+
+.entry-name a:hover {
+  text-shadow: 0 0 5px var(--cyber-blue);
+}
+
+.entry-vibe {
+  font-size: 20px;
+}
+
+.entry-message {
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.6;
+  margin-bottom: 10px;
+  word-wrap: break-word;
+}
+
+.entry-date {
+  font-size: 11px;
+  color: var(--acid-green);
+  font-family: var(--font-mono);
+}
+
+.delete-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: rgba(255, 0, 0, 0.3);
+  border: 1px solid #ff0000;
+  color: #ff0000;
+  padding: 4px 8px;
+  font-size: 10px;
+  cursor: pointer;
+  border-radius: 2px;
+  font-family: var(--font-pixel);
+  opacity: 0;
+  transition: all 0.2s ease;
+}
+
+.guestbook-entry:hover .delete-btn {
+  opacity: 1;
+}
+
+.delete-btn:hover {
+  background: #ff0000;
+  color: #ffffff;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 40px;
+  color: rgba(255, 255, 255, 0.5);
+  font-family: var(--font-mono);
+}
+
+@media (max-width: 640px) {
+  .form-title,
+  .entries-title {
+    font-size: 10px;
+  }
+  
+  .submit-btn {
+    font-size: 10px;
+  }
+}
+</style>
+
+<script>
+// Guestbook functionality
+document.addEventListener('DOMContentLoaded', () => {
+  const form = document.getElementById('guestbook-form');
+  const entriesContainer = document.getElementById('guestbook-entries');
+  const messageInput = document.getElementById('guest-message');
+  const charCount = document.querySelector('.char-count');
+  
+  // Character counter
+  messageInput.addEventListener('input', () => {
+    const length = messageInput.value.length;
+    charCount.textContent = `${length}/500`;
+    
+    if (length > 450) {
+      charCount.style.color = 'var(--hot-pink)';
+    } else {
+      charCount.style.color = 'var(--acid-green)';
+    }
+  });
+  
+  // Load existing entries
+  function loadEntries() {
+    const entries = JSON.parse(localStorage.getItem('guestbook-entries') || '[]');
+    
+    if (entries.length === 0) {
+      entriesContainer.innerHTML = '<div class="empty-state">No entries yet. Be the first to sign! 📝</div>';
+      return;
+    }
+    
+    entriesContainer.innerHTML = entries
+      .sort((a, b) => new Date(b.date) - new Date(a.date))
+      .map((entry, index) => `
+        <div class="guestbook-entry" data-index="${index}">
+          <button class="delete-btn" onclick="deleteEntry(${index})">✕</button>
+          <div class="entry-header">
+            <div class="entry-name">
+              ${entry.website 
+                ? `<a href="${entry.website}" target="_blank" rel="noopener">${entry.name}</a>` 
+                : entry.name
+              }
+            </div>
+            <div class="entry-vibe">${entry.vibe}</div>
+          </div>
+          <div class="entry-message">${escapeHtml(entry.message)}</div>
+          <div class="entry-date">${formatDate(entry.date)}</div>
+        </div>
+      `).join('');
+  }
+  
+  // Add new entry
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    
+    const formData = new FormData(form);
+    const entry = {
+      name: formData.get('name'),
+      website: formData.get('website'),
+      message: formData.get('message'),
+      vibe: formData.get('vibe'),
+      date: new Date().toISOString()
+    };
+    
+    const entries = JSON.parse(localStorage.getItem('guestbook-entries') || '[]');
+    entries.push(entry);
+    localStorage.setItem('guestbook-entries', JSON.stringify(entries));
+    
+    form.reset();
+    charCount.textContent = '0/500';
+    loadEntries();
+    
+    // Show success message
+    showNotification('✨ Signed! Thanks for leaving your mark!');
+  });
+  
+  // Delete entry
+  window.deleteEntry = function(index) {
+    if (!confirm('Delete this entry?')) return;
+    
+    const entries = JSON.parse(localStorage.getItem('guestbook-entries') || '[]');
+    entries.splice(index, 1);
+    localStorage.setItem('guestbook-entries', JSON.stringify(entries));
+    loadEntries();
+  };
+  
+  // Helper functions
+  function escapeHtml(text) {
+    const div = document.createElement('div');
+    div.textContent = text;
+    return div.innerHTML;
+  }
+  
+  function formatDate(dateString) {
+    const date = new Date(dateString);
+    return date.toLocaleString('en-US', {
+      month: 'short',
+      day: 'numeric',
+      year: 'numeric',
+      hour: '2-digit',
+      minute: '2-digit'
+    });
+  }
+  
+  function showNotification(message) {
+    const notification = document.createElement('div');
+    notification.style.cssText = `
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: var(--hot-pink);
+      color: #ffffff;
+      padding: 15px 25px;
+      border-radius: 4px;
+      font-family: var(--font-pixel);
+      font-size: 11px;
+      box-shadow: 0 0 20px rgba(255, 0, 110, 0.8);
+      z-index: 10000;
+      animation: slideIn 0.3s ease;
+    `;
+    notification.textContent = message;
+    document.body.appendChild(notification);
+    
+    setTimeout(() => {
+      notification.style.animation = 'slideOut 0.3s ease';
+      setTimeout(() => notification.remove(), 300);
+    }, 3000);
+  }
+  
+  // Load entries on page load
+  loadEntries();
+});
+</script>

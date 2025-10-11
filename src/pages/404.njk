@@ -1,0 +1,156 @@
+---
+layout: layouts/page.njk
+title: 404 - Page Not Found
+permalink: /404.html
+eleventyExcludeFromCollections: true
+---
+
+<div class="error-page">
+  <div class="error-container">
+    <div class="error-code glitch" data-text="404">404</div>
+    <h2 class="error-title">PAGE_NOT_FOUND.exe</h2>
+    <p class="error-message">
+      The page you're looking for has been lost in cyberspace. 
+      Maybe it got glitched out of existence? 💀
+    </p>
+    
+    <div class="error-suggestions">
+      <p class="suggestion-title">TRY THESE INSTEAD:</p>
+      <ul class="suggestion-list">
+        <li><a href="/">← Back to Home</a></li>
+        <li><a href="/blog/">Browse All Posts</a></li>
+        <li><a href="/about/">About This Site</a></li>
+        <li><a href="/guestbook/">Sign the Guestbook</a></li>
+      </ul>
+    </div>
+    
+    <div class="error-ascii">
+      <pre>
+    ____  ____  ____  
+   / __ \/ __ \/ __ \ 
+  / /_/ / / / / /_/ / 
+ /\____/_/ /_/\____/  
+ \____/              
+      </pre>
+    </div>
+  </div>
+</div>
+
+<style>
+.error-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  text-align: center;
+}
+
+.error-container {
+  max-width: 600px;
+  padding: 40px;
+  background: rgba(10, 10, 10, 0.9);
+  border: 3px solid var(--hot-pink);
+  border-radius: 8px;
+  box-shadow: 0 0 30px rgba(255, 0, 110, 0.5);
+}
+
+.error-code {
+  font-family: var(--font-pixel);
+  font-size: clamp(80px, 15vw, 120px);
+  color: var(--hot-pink);
+  text-shadow: 
+    0 0 20px var(--hot-pink),
+    0 0 40px var(--neon-purple);
+  margin-bottom: 20px;
+  line-height: 1;
+}
+
+.error-title {
+  font-family: var(--font-pixel);
+  font-size: clamp(16px, 4vw, 20px);
+  color: var(--cyber-blue);
+  text-shadow: 0 0 10px var(--cyber-blue);
+  margin-bottom: 25px;
+  letter-spacing: 2px;
+}
+
+.error-message {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+
+.error-suggestions {
+  padding: 25px;
+  background: rgba(0, 0, 0, 0.6);
+  border: 2px solid var(--neon-purple);
+  border-radius: 4px;
+  margin-bottom: 30px;
+}
+
+.suggestion-title {
+  font-family: var(--font-pixel);
+  font-size: 12px;
+  color: var(--acid-green);
+  margin-bottom: 15px;
+}
+
+.suggestion-list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.suggestion-list li a {
+  display: inline-block;
+  padding: 10px 20px;
+  background: linear-gradient(135deg, var(--neon-purple), var(--hot-pink));
+  border: 2px solid var(--cyber-blue);
+  border-radius: 4px;
+  color: #ffffff;
+  text-decoration: none;
+  font-family: var(--font-mono);
+  font-size: 14px;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 10px rgba(184, 78, 255, 0.5);
+}
+
+.suggestion-list li a:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(255, 0, 110, 0.8);
+}
+
+.error-ascii {
+  margin-top: 30px;
+  font-family: 'Courier New', monospace;
+  font-size: 12px;
+  color: var(--neon-purple);
+  opacity: 0.5;
+}
+
+.error-ascii pre {
+  margin: 0;
+  line-height: 1.2;
+}
+
+@media (max-width: 640px) {
+  .error-container {
+    padding: 30px 20px;
+  }
+  
+  .error-code {
+    font-size: 80px;
+  }
+  
+  .error-title {
+    font-size: 14px;
+  }
+  
+  .error-ascii {
+    font-size: 10px;
+  }
+}
+</style>

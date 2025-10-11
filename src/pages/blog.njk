@@ -1,0 +1,258 @@
+---
+layout: layouts/page.njk
+title: All Posts
+permalink: /blog/
+---
+
+<div class="blog-archive">
+  <div class="archive-intro">
+    <p class="neon-text">📚 Every post from the digital archives</p>
+  </div>
+
+  <!-- Filter by tag -->
+  <div class="tag-filter">
+    <span class="filter-label">FILTER:</span>
+    <button class="tag-btn active" data-tag="all">ALL</button>
+    {% for tag in collections.tagList %}
+      <button class="tag-btn" data-tag="{{ tag }}">{{ tag }}</button>
+    {% endfor %}
+  </div>
+
+  <!-- Posts list -->
+  <div class="posts-archive-grid">
+    {% for post in collections.posts %}
+      <article class="archive-post-card" data-tags="{{ post.data.tags | join(',') }}">
+        <div class="archive-post-meta">
+          <time class="archive-post-date">{{ post.date | readableDate }}</time>
+          <span class="archive-post-category">{{ post.data.category | upper }}</span>
+        </div>
+        
+        <h2 class="archive-post-title">
+          <a href="{{ post.url }}">{{ post.data.title }}</a>
+        </h2>
+        
+        <p class="archive-post-excerpt">{{ post.data.excerpt }}</p>
+        
+        {% if post.data.tags %}
+        <div class="archive-post-tags">
+          {% for tag in post.data.tags %}
+            <span class="archive-tag">{{ tag }}</span>
+          {% endfor %}
+        </div>
+        {% endif %}
+      </article>
+    {% endfor %}
+  </div>
+
+  <div id="no-results" class="no-results hidden">
+    <p>😢 No posts found with that tag.</p>
+  </div>
+</div>
+
+<style>
+.blog-archive {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.archive-intro {
+  padding: 20px;
+  background: rgba(184, 78, 255, 0.1);
+  border: 2px solid var(--neon-purple);
+  border-radius: 8px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.tag-filter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  padding: 20px;
+  background: rgba(10, 10, 10, 0.8);
+  border: 2px solid var(--cyber-blue);
+  border-radius: 8px;
+  margin-bottom: 30px;
+}
+
+.filter-label {
+  font-family: var(--font-pixel);
+  font-size: 11px;
+  color: var(--hot-pink);
+  margin-right: 10px;
+}
+
+.tag-btn {
+  padding: 8px 16px;
+  background: rgba(0, 0, 0, 0.6);
+  border: 2px solid var(--neon-purple);
+  border-radius: 4px;
+  color: var(--cyber-blue);
+  font-family: var(--font-mono);
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-transform: uppercase;
+}
+
+.tag-btn:hover {
+  background: var(--neon-purple);
+  color: #ffffff;
+  box-shadow: 0 0 10px var(--neon-purple);
+}
+
+.tag-btn.active {
+  background: var(--hot-pink);
+  border-color: var(--hot-pink);
+  color: #ffffff;
+  box-shadow: 0 0 15px var(--hot-pink);
+}
+
+.posts-archive-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.archive-post-card {
+  padding: 25px;
+  background: rgba(10, 10, 10, 0.9);
+  border: 2px solid var(--neon-purple);
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.archive-post-card:hover {
+  border-color: var(--hot-pink);
+  box-shadow: 0 5px 20px rgba(255, 0, 110, 0.3);
+  transform: translateX(5px);
+}
+
+.archive-post-meta {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.archive-post-date {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--acid-green);
+}
+
+.archive-post-category {
+  padding: 4px 12px;
+  background: rgba(184, 78, 255, 0.2);
+  border: 1px solid var(--neon-purple);
+  border-radius: 3px;
+  font-family: var(--font-pixel);
+  font-size: 9px;
+  color: var(--cyber-blue);
+}
+
+.archive-post-title {
+  margin-bottom: 12px;
+}
+
+.archive-post-title a {
+  font-family: var(--font-pixel);
+  font-size: 16px;
+  color: var(--hot-pink);
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.archive-post-title a:hover {
+  color: var(--cyber-blue);
+  text-shadow: 0 0 10px var(--cyber-blue);
+}
+
+.archive-post-excerpt {
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+.archive-post-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.archive-tag {
+  padding: 4px 10px;
+  background: rgba(0, 0, 0, 0.6);
+  border: 1px solid var(--cyber-blue);
+  border-radius: 3px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--cyber-blue);
+}
+
+.no-results {
+  text-align: center;
+  padding: 40px;
+  color: rgba(255, 255, 255, 0.5);
+  font-family: var(--font-mono);
+  font-size: 18px;
+}
+
+.hidden {
+  display: none;
+}
+
+@media (max-width: 640px) {
+  .tag-filter {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .archive-post-title a {
+    font-size: 14px;
+  }
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const tagButtons = document.querySelectorAll('.tag-btn');
+  const postCards = document.querySelectorAll('.archive-post-card');
+  const noResults = document.getElementById('no-results');
+  const archiveGrid = document.querySelector('.posts-archive-grid');
+  
+  tagButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const selectedTag = btn.dataset.tag;
+      
+      // Update active button
+      tagButtons.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      
+      // Filter posts
+      let visibleCount = 0;
+      
+      postCards.forEach(card => {
+        const cardTags = card.dataset.tags.split(',');
+        
+        if (selectedTag === 'all' || cardTags.includes(selectedTag)) {
+          card.style.display = 'block';
+          visibleCount++;
+        } else {
+          card.style.display = 'none';
+        }
+      });
+      
+      // Show/hide no results message
+      if (visibleCount === 0) {
+        noResults.classList.remove('hidden');
+        archiveGrid.style.display = 'none';
+      } else {
+        noResults.classList.add('hidden');
+        archiveGrid.style.display = 'flex';
+      }
+    });
+  });
+});
+</script>
