@@ -1,0 +1,53 @@
+---
+layout: layouts/base.njk
+title: Home
+---
+
+<section class="hero">
+  <div class="hero-content">
+    <h1 class="glitch" data-text="{{ site.title }}">
+      {{ site.title }}
+    </h1>
+    <p class="neon-text">{{ site.description }}</p>
+  </div>
+  
+  <!-- Animated background using CSS gradients -->
+  <div class="animated-bg" aria-hidden="true"></div>
+</section>
+
+<!-- Search Widget -->
+<div class="search-container">
+  <div class="search-input-wrapper">
+    <input 
+      type="search" 
+      id="search-input" 
+      class="search-input"
+      placeholder="SEARCH_POSTS..."
+      autocomplete="off"
+      style="width: 100%; padding: 15px 50px 15px 20px; background: rgba(10, 10, 10, 0.8); border: 2px solid var(--cyber-blue); border-radius: 4px; color: var(--cyber-blue); font-family: var(--font-mono); font-size: 16px; outline: none;"
+    >
+    <span class="search-icon" style="position: absolute; right: 15px; top: 50%; transform: translateY(-50%); pointer-events: none;">🔍</span>
+  </div>
+  <div id="search-results" class="search-results hidden" style="position: absolute; top: calc(100% + 10px); left: 0; width: 100%; max-height: 500px; overflow-y: auto; background: rgba(10, 10, 10, 0.95); border: 2px solid var(--neon-purple); border-radius: 4px; box-shadow: 0 10px 40px rgba(157, 0, 255, 0.3); z-index: 100;"></div>
+</div>
+
+<!-- Latest Posts Section -->
+<section id="posts" class="latest-posts">
+  <h2 class="section-title glitch" data-text="LATEST POSTS">LATEST POSTS</h2>
+  
+  <div class="posts-grid">
+    {% for post in collections.posts | limit(6) %}
+      {% include "components/post-card.njk" %}
+    {% endfor %}
+  </div>
+  
+  <div style="text-align: center; margin-top: 3rem;">
+    {% set text = "View All Posts" %}
+    {% set href = "/blog/" %}
+    {% set variant = "primary" %}
+    {% include "components/neon-button.njk" %}
+  </div>
+</section>
+
+<!-- Stats counter (client-side rendered) -->
+<div id="stats-widget" style="margin-top: 4rem; padding: 2rem; background: rgba(10, 10, 10, 0.8); border: 2px solid var(--neon-purple); border-radius: 8px; font-family: var(--font-mono);"></div>
