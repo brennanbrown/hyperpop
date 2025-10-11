@@ -1,0 +1,30 @@
+{
+  "name": "hyperpop-blog",
+  "version": "1.0.0",
+  "description": "A Y2K-style vaporwave aesthetic blog built with 11ty",
+  "scripts": {
+    "clean": "rm -rf _site",
+    "dev": "eleventy --serve",
+    "build": "eleventy",
+    "debug": "DEBUG=Eleventy* eleventy",
+    "postbuild": "node scripts/generate-sitemap.js",
+    "scrape-images": "python3 scripts/hyperpop-image-scraper.py",
+    "integrate-images": "./scripts/integrate-images.sh",
+    "update-images": "python3 scripts/update-post-images.py"
+  },
+  "keywords": ["11ty", "blog", "y2k", "vaporwave", "cyberpunk", "theme", "static-site"],
+  "author": "Brennan Brown <mail@brennanbrown.ca>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/brennanbrown/hyperpop.git"
+  },
+  "homepage": "https://hyperpop-theme.netlify.app",
+  "devDependencies": {
+    "@11ty/eleventy": "^2.0.1",
+    "@11ty/eleventy-img": "^3.1.0",
+    "@11ty/eleventy-plugin-syntaxhighlight": "^5.0.0",
+    "luxon": "^3.4.3",
+    "markdown-it": "^13.0.2"
+  }
+}
