@@ -13,6 +13,7 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy({"src/robots.txt": "robots.txt"});
   eleventyConfig.addPassthroughCopy({"src/sw.js": "sw.js"});
   eleventyConfig.addPassthroughCopy({"src/hyperpop-demo.png": "hyperpop-demo.png"});
+  eleventyConfig.addPassthroughCopy({"src/favicon.svg": "favicon.svg"});
   
   // Watch for CSS changes
   eleventyConfig.addWatchTarget("src/assets/css/");
