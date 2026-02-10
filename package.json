@@ -12,9 +12,17 @@
     "integrate-images": "./scripts/integrate-images.sh",
     "update-images": "python3 scripts/update-post-images.py"
   },
-  "keywords": ["11ty", "blog", "y2k", "vaporwave", "cyberpunk", "theme", "static-site"],
+  "keywords": [
+    "11ty",
+    "blog",
+    "y2k",
+    "vaporwave",
+    "cyberpunk",
+    "theme",
+    "static-site"
+  ],
   "author": "Brennan Brown <mail@brennanbrown.ca>",
-  "license": "MIT",
+  "license": "AGPL-3.0",
   "repository": {
     "type": "git",
     "url": "https://github.com/brennanbrown/hyperpop.git"
