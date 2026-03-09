@@ -4,19 +4,25 @@
 
 /* CSS Variables */
 :root {
-  /* Grunge/Hyperpop/Alt Colors - more authentic */
-  --neon-purple: #B84EFF;
-  --hot-pink: #FF006E;
-  --cyber-blue: #06FFA5;
+  /* Grunge/Hyperpop/Alt Colors - improved contrast */
+  --neon-purple: #A855F7;  /* Better contrast */
+  --hot-pink: #EC4899;    /* Better contrast */
+  --cyber-blue: #06B6D4;  /* Better contrast */
   
   /* Secondary Colors */
-  --acid-green: #CCFF00;
-  --electric-yellow: #FFD60A;
-  --dirty-orange: #FF9500;
+  --acid-green: #84CC16;  /* Better contrast */
+  --electric-yellow: #FCD34D;  /* Better contrast */
+  --dirty-orange: #FB923C;  /* Better contrast */
+  
+  /* Text Colors - high contrast */
+  --text-primary: #FFFFFF;
+  --text-secondary: #E5E7EB;
+  --text-muted: #9CA3AF;
   
   /* Backgrounds */
-  --deep-black: #0D0D0D;
-  --dark-gray: #1C1C1E;
+  --deep-black: #0A0A0A;
+  --dark-gray: #1F1F1F;
+  --card-bg: #2A2A2A;
   
   /* Gradients */
   --gradient-primary: linear-gradient(135deg, var(--neon-purple), var(--hot-pink), var(--cyber-blue));
@@ -74,7 +80,7 @@ html {
 body {
   font-family: var(--font-body);
   background: var(--deep-black);
-  color: #ffffff;
+  color: var(--text-primary);
   line-height: 1.6;
   overflow-x: hidden;
   /* Tiled background pattern */
@@ -1751,6 +1757,26 @@ img, .post-card-image, .hero-background {
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
   border-width: 0;
+}
+
+/* Skip Link for Accessibility */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 6px;
+  background: var(--neon-purple);
+  color: var(--text-primary);
+  padding: 8px;
+  text-decoration: none;
+  border-radius: 4px;
+  font-family: var(--font-mono);
+  font-size: 14px;
+  z-index: 10000;
+  transition: top 0.3s;
+}
+
+.skip-link:focus {
+  top: 6px;
 }
 
 .text-center {

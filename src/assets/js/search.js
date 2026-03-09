@@ -13,6 +13,13 @@ class BlogSearch {
     this.init();
   }
   
+  // Escape HTML to prevent XSS
+  escapeHtml(text) {
+    const div = document.createElement('div');
+    div.textContent = text;
+    return div.innerHTML;
+  }
+  
   async init() {
     // Fetch search index
     try {
@@ -20,7 +27,7 @@ class BlogSearch {
       this.searchIndex = await response.json();
       this.setupEventListeners();
     } catch (error) {
-      console.error('Failed to load search index:', error);
+      // Failed to load search index
     }
   }
   
@@ -58,7 +65,7 @@ class BlogSearch {
     if (results.length === 0) {
       this.resultsContainer.innerHTML = `
         <div class="search-no-results">
-          <p>NO_RESULTS_FOUND</p>
+          <p>No results found</p>
         </div>
       `;
       this.resultsContainer.classList.remove('hidden');
@@ -66,12 +73,12 @@ class BlogSearch {
     }
     
     const html = results.slice(0, 5).map(result => `
-      <a href="${result.url}" class="search-result-item">
-        <h4 class="search-result-title">${this.highlightMatch(result.title, query)}</h4>
-        <p class="search-result-excerpt">${this.highlightMatch(result.excerpt, query)}</p>
+      <a href="${this.escapeHtml(result.url)}" class="search-result-item">
+        <h4 class="search-result-title">${this.highlightMatch(this.escapeHtml(result.title), query)}</h4>
+        <p class="search-result-excerpt">${this.highlightMatch(this.escapeHtml(result.excerpt), query)}</p>
         ${result.tags.length > 0 ? `
           <div class="search-result-tags">
-            ${result.tags.slice(0, 3).map(tag => `<span class="tag-pill">${tag}</span>`).join('')}
+            ${result.tags.slice(0, 3).map(tag => `<span class="tag-pill">${this.escapeHtml(tag)}</span>`).join('')}
           </div>
         ` : ''}
       </a>

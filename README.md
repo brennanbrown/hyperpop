@@ -1,4 +1,4 @@
-# HYPERPOP 🌈
+# HYPERPOP
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/your-badge-id/deploy-status)](https://app.netlify.com/sites/hyperpop-theme/deploys)
 [![License: AGPL v3](https://img.shields.io/badge/License-AGPL%20v3-blue.svg)](https://www.gnu.org/licenses/agpl-3.0)
@@ -7,24 +7,24 @@
 
 > A Y2K-inspired static blog theme built with Eleventy. Features authentic late 90s/early 2000s web aesthetics with modern performance and accessibility.
 
-**[Live Demo](https://hyperpop-theme.netlify.app)** | **[Documentation](#documentation)** | **[Getting Started](#-quick-start)**
+**[Live Demo](https://hyperpop-theme.netlify.app)** | **[Documentation](#documentation)** | **[Getting Started](#quick-start)**
 
 ![HYPERPOP Demo](hyperpop-demo.png)
 
-## ✨ Features
+## Features
 
-- **🎨 Y2K Aesthetics** - Neon colors, glitch effects, holographic borders, and CRT vibes
-- **⚡ Lightning Fast** - Static site generation with optimized assets
-- **🎭 Pure CSS Magic** - Scan lines, chromatic aberration, animated gradients
-- **🎮 Interactive Elements** - Custom cursor trail, Konami code easter egg, client-side search
-- **📱 Fully Responsive** - Beautiful on all devices with touch optimization
-- **♿ Accessible** - WCAG AA compliant with reduced motion support
-- **🔍 Client-Side Search** - Fast, privacy-respecting search with JSON index
-- **📊 Stats Counter** - localStorage-based page view tracking
-- **📡 Offline Support** - Service worker for offline capability
-- **🎯 SEO Optimized** - Meta tags, sitemap, RSS feed
+- **Y2K Aesthetics** - Neon colors, glitch effects, holographic borders, and CRT vibes
+- **Lightning Fast** - Static site generation with optimized assets
+- **Pure CSS Magic** - Scan lines, chromatic aberration, animated gradients
+- **Interactive Elements** - Custom cursor trail, Konami code easter egg, client-side search
+- **Fully Responsive** - Beautiful on all devices with touch optimization
+- **Accessible** - WCAG AA compliant with reduced motion support
+- **Client-Side Search** - Fast, privacy-respecting search with JSON index
+- **Stats Counter** - localStorage-based page view tracking
+- **Offline Support** - Service worker for offline capability
+- **SEO Optimized** - Meta tags, sitemap, RSS feed
 
-## 🚀 Quick Start
+## Quick Start
 
 ### Prerequisites
 
@@ -55,7 +55,7 @@ npm run build
 # Output will be in _site/
 ```
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 hyperpop/
@@ -100,7 +100,7 @@ hyperpop/
 └── netlify.toml              # Netlify deployment config
 ```
 
-## 🎨 Customization
+## Customization
 
 ### Colors
 
@@ -143,7 +143,7 @@ The site uses Google Fonts by default:
 
 Change fonts in `src/_includes/partials/head.njk`.
 
-## 📝 Creating Content
+## Creating Content
 
 ### New Blog Post
 
@@ -180,14 +180,14 @@ permalink: /page-slug/
 Page content...
 ```
 
-## 🎮 Easter Eggs
+## Easter Eggs
 
 Try the **Konami Code** on the homepage:  
 `↑ ↑ ↓ ↓ ← → ← → B A`
 
 Unlocks ultra glitch mode!
 
-## 🚢 Deployment
+## Deployment
 
 ### Netlify (Recommended)
 
@@ -206,7 +206,7 @@ The site works on any static hosting:
 - Cloudflare Pages
 - Render
 
-## 🖼️ Image Management
+## Image Management
 
 ### Get Y2K Aesthetic Images
 
@@ -222,11 +222,11 @@ npm run update-images
 ```
 
 **What it does:**
-- 🎨 Downloads images from Unsplash, Pexels, Pixabay
-- 🔍 Searches for: vaporwave, cyberpunk, glitch art, etc.
-- 🌈 Filters by your color palette (purple, pink, cyan)
-- 📝 Saves photographer credits automatically
-- 🖼️ Creates an HTML gallery to preview
+- Downloads images from Unsplash, Pexels, Pixabay
+- Searches for: vaporwave, cyberpunk, glitch art, etc.
+- Filters by your color palette (purple, pink, cyan)
+- Saves photographer credits automatically
+- Creates an HTML gallery to preview
 
 **Preview images before using:**
 ```bash
@@ -261,7 +261,7 @@ The image scraper uses free API keys from image providers. To set them up:
 
 See `scripts/README.md` for detailed documentation.
 
-## 🔧 Development
+## Development
 
 ### Available Scripts
 
@@ -280,7 +280,7 @@ The dev server watches for changes:
 - CSS files
 - JavaScript files
 
-## 🎯 Performance
+## Performance
 
 The site is optimized for speed:
 
@@ -297,7 +297,7 @@ Target Lighthouse scores:
 - Best Practices: 90+
 - SEO: 100
 
-## ♿ Accessibility
+## Accessibility
 
 Built with accessibility in mind:
 
@@ -308,14 +308,14 @@ Built with accessibility in mind:
 - WCAG AA color contrast
 - Screen reader friendly
 
-## 🤝 Contributing
+## Contributing
 
 Contributions are welcome! Whether it's:
 
-- 🐛 Bug fixes
-- ✨ New features
-- 📝 Documentation improvements
-- 🎨 Design enhancements
+- Bug fixes
+- New features
+- Documentation improvements
+- Design enhancements
 
 Please feel free to open an issue or submit a pull request.
 
@@ -327,7 +327,7 @@ Please feel free to open an issue or submit a pull request.
 4. Push to the branch (`git push origin feature/amazing-feature`)
 5. Open a Pull Request
 
-## 📝 Credits
+## Credits
 
 ### Built With
 
@@ -343,7 +343,7 @@ Please feel free to open an issue or submit a pull request.
 - Hyperpop and alternative internet culture
 - Windows 98 UI design
 
-## 💖 Support This Project
+## Support This Project
 
 If you find this theme helpful, please consider supporting its development:
 
@@ -355,14 +355,14 @@ If you find this theme helpful, please consider supporting its development:
 </div>
 
 Your support helps me:
-- 🛠️ Maintain and improve this theme
-- 🎨 Create more open-source projects
-- 📚 Write tutorials and documentation
-- ☕ Stay caffeinated while coding
+- Maintain and improve this theme
+- Create more open-source projects
+- Write tutorials and documentation
+- Stay caffeinated while coding
 
-Even a small contribution makes a huge difference! Thank you! 💜
+Even a small contribution makes a huge difference! Thank you!
 
-## 📄 License
+## License
 
 MIT License - feel free to use this theme for your own projects!
 
@@ -372,14 +372,14 @@ See the [LICENSE](LICENSE) file for details.
 
 <div align="center">
 
-**Made with 💜 by [Brennan Brown](https://github.com/brennanbrown)**
+**Made with love by [Brennan Brown](https://github.com/brennanbrown)**
 
-If you found this project helpful, consider giving it a ⭐!
+If you found this project helpful, consider giving it a star!
 
 [![GitHub stars](https://img.shields.io/github/stars/brennanbrown/hyperpop?style=social)](https://github.com/brennanbrown/hyperpop)
 [![Twitter Follow](https://img.shields.io/twitter/follow/brennankbrown?style=social)](https://twitter.com/brennankbrown)
 
-*Built with 💜 using 11ty and way too much neon.*
+*Built with love using 11ty and way too much neon.*
 
 [Live Demo](https://hyperpop-theme.netlify.app) • [Report Bug](https://github.com/brennanbrown/hyperpop/issues) • [Request Feature](https://github.com/brennanbrown/hyperpop/issues)
 

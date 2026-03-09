@@ -51,7 +51,7 @@ class HyperpopBlog {
             button.textContent = 'Copy Link';
           }, 2000);
         } catch (err) {
-          console.error('Failed to copy:', err);
+          // Failed to copy text
         }
       });
     });
@@ -60,8 +60,12 @@ class HyperpopBlog {
   registerServiceWorker() {
     if ('serviceWorker' in navigator) {
       navigator.serviceWorker.register('/sw.js')
-        .then(reg => console.log('SW registered'))
-        .catch(err => console.log('SW error:', err));
+        .then(reg => {
+          // Service worker registered successfully
+        })
+        .catch(err => {
+          // Service worker registration failed
+        });
     }
   }
 }
